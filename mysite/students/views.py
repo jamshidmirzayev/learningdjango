@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Welcome to Students App!")
+    return HttpResponse("Students List")
 
 def student_detail(request, student_id):
     return HttpResponse(f"Student ID: {student_id}")
