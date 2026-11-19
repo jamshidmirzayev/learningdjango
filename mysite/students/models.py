@@ -3,9 +3,11 @@ from django.db.models import CheckConstraint
 
 # Create your models here.
 
-# class Student(models.Model):
-#     name = models.CharField(max_length=100)
-#     age = models.IntegerField()
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    email = models.EmailField(null=True, blank=True, unique=True)
+    is_active = models.BooleanField(default=False)
 
 # Many-To-One
     
