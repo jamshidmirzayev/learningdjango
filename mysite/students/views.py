@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
+from students.models import Student
 
 # Create your views here.
 
@@ -32,3 +33,21 @@ def student_created(request):
 
 def student_not_found(request):
     raise Http404("Student not found")
+
+def compare_students(request):
+    id1 = request.GET.get("id1")
+    id2 = request.GET.get("id2")
+
+    student1 = Student.objects.get(pk=id1)
+    student2 = Student.objects.get(pk=id2)
+
+    result = student1 == student2
+
+    return HttpResponse(result)
+
+# Asynchronous ORM Queries
+
+# async def student_info(request):
+#     student = await Student.object.aget(pk=1)
+#     return HttpResponse(student.name)
+
